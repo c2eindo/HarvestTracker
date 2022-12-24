@@ -169,7 +169,7 @@ function App() {
     let value = event.target.value;
     let result = [];
     result = pendingHarvests.filter((data) => {
-    return data.player.search(value) != -1;
+    return data.player.search(value) !== -1;
     });
     setFilteredData(result);
     }
