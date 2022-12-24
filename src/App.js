@@ -146,7 +146,6 @@ function App() {
       const playerDataEntries = await PlayerData.fetchMultiple(tenantPlayerDataKeys);
       
       for (const { player, active, banned, lastHarvestTimestamp ,activeHabitat} of playerDataEntries) {
-       let activehabitats2=  HabitatData.fetch([activeHabitat]);
         Object.assign(tenants[player.toBase58()], {
           active,
           banned,
@@ -176,11 +175,9 @@ function App() {
   const handleChange = ({ target: { name, value }}) => {
     setFormData({ name, value });
   };
-  const humanDate = date => date.toISOString().substring(0, 16).replace('T', ' ') + ' UTC';
-
   return (
     <Container>
-      <h1>Genopets harvests tracker</h1>
+      <h1>Habitat Management by C2E</h1>
       <Form onSubmit={handleSumbit}>
         <Form.Group className='row'>
           <Form.Label className='col-sm-2 col-form-label'>Landlord wallet</Form.Label>
